@@ -3,11 +3,11 @@ var router = express.Router();
 
 /* GET home page. */
 router.get('/', function(req, res, next) {
-  res.render('index', { title: 'Express' });
+  res.render('index', { title: '主页' });
 });
 
 router.get('/reg',function(req,res) {
-	res.render('reg',{title: 'Register'});
+	res.render('reg',{title: 'REG'});
 });
 
 router.get('/login',function(req,res) {

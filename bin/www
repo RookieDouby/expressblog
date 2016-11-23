@@ -5,7 +5,7 @@
  */
 
 var app = require('../app');
-var debug = require('debug')('blog:server');
+var debug = require('debug')('blog:server'); //npm start 启动的时候DEBUG=blog:* npm start 中的blog就是指的这个
 var http = require('http');
 
 /**

@@ -13,12 +13,17 @@
             <span>
                 <a href="/" title="Homepage">home</a>
             </span>
-            <span>
-                <a href="/login" title="Login">login</a>
-            </span>
-            <span>
-                <a href="/reg" title="Register">register</a>
-            </span>
+            <%if (user) {%>
+                <span><a title="Post a article" href="/post" />post</span>
+                <span><a title="Logout" href="/logout" />logout</span>
+            <%} else {%>
+                <span>
+                    <a href="/login" title="Login">login</a>
+                </span>
+                <span>
+                    <a href="/reg" title="Register">register</a>
+                </span>
+            <%}%>
         </div>
 
         <article>

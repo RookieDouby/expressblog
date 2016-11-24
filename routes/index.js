@@ -3,6 +3,7 @@ var User = require('../models/user.js');
 
 module.exports = function(app) {
   app.get('/', function (req, res) {
+<<<<<<< HEAD
     res.render('index', {
         title: 'Homepage' ,
         user: req.session.user,
@@ -17,6 +18,22 @@ module.exports = function(app) {
         success: req.flash('success').toString(),
         error: req.flash('error').toString()
     });
+=======
+    res.render('index', {
+		title: '主页',
+		user: req.session.user,
+		success: req.flash('success').toString(),
+		error: req.flash('error').toString()
+	 });
+  });
+  app.get('/reg', function (req, res) {
+    res.render('reg', {
+		title: '注册',
+		user: req.session.user,
+		success: req.flash('success').toString(),
+		error: req.flash('error').toString()
+	 });
+>>>>>>> 7791e3f992c46e88ff277c774d10ddb61a72db70
   });
   app.post('/reg', function (req, res) {
 		var name = req.body.name,
@@ -52,7 +69,7 @@ module.exports = function(app) {
 				return res.redirect('/reg');//注册失败返回主册页
 			}
 			req.session.user = user;//用户信息存入 session
-			req.flash('success', '注册成功!');
+			req.flash('success', 'Registered successfully!');
 			res.redirect('/');//注册成功后返回主页
 			});
 		});

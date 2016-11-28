@@ -1,5 +1,6 @@
 var crypto = require('crypto');
 var User = require('../models/user.js');
+var Post = require('../models/post.js');
 
 module.exports = function(app) {
   app.get('/',function(req, res) {

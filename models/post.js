@@ -47,3 +47,31 @@ Post.prototype.save = function(callback) {
         });
     });
 };
+
+Post.get = function(name, callback) {
+    //open database
+    mongodb.open(function(err, db) {
+        if (err) {
+            return callback(err);
+        }
+        db.collections('posts',function(err, collection) {
+            if (err) {
+                db.close();
+                return callback(err);
+            }
+            //find aiticle by article name
+            var query = {};
+            if (name) {
+                query.name = name;
+            }
+            collection.find(query).sort({
+                time: -1
+            }).toArray(function(err, docs) {
+                if (err) {
+                    return callback(err);
+                }
+                callback(null, docs);// return as  a Array of result
+            });
+        });
+    });
+}
